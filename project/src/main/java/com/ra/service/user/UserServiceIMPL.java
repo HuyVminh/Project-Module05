@@ -44,7 +44,7 @@ public class UserServiceIMPL implements IUserService {
     public User register(UserRegisterDTO userRegisterDTO) throws CustomException {
         // check trung lap
         if (userRepository.existsUserByUserName(userRegisterDTO.getUserName())) {
-            throw new CustomException("Username already exists");
+            throw new CustomException("Tên đăng nhập đã tồn tại !");
         }
         // ma hoa mat khau
         userRegisterDTO.setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
